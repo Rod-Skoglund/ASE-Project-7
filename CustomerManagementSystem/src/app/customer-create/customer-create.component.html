@@ -1,0 +1,47 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/customers']">
+    <mat-icon>list</mat-icon>
+  </a>
+</div>
+<form [formGroup]="customerForm" (ngSubmit)="onFormSubmit(customerForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="CustID" formControlName="custid"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerForm.get('custid').valid && customerForm.get('custid').touched">Please enter Customer ID</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" formControlName="name"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerForm.get('name').valid && customerForm.get('name').touched">Please enter Customer Name</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Address" formControlName="address"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerForm.get('address').valid && customerForm.get('address').touched">Please enter Customer Address</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Phone" formControlName="phone"
+              [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!customerForm.get('phone').valid && customerForm.get('phone').touched">Please enter Customer Phone</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!customerForm.get('email').valid && customerForm.get('email').touched">Please enter Customer Email</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!customerForm.valid" mat-raised-button color="primary">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</form>
