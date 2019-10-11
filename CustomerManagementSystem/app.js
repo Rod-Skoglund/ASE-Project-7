@@ -5,7 +5,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb+srv://siri:siri@cluster0-nbpjk.mongodb.net/asedatabase?retryWrites=true&w=majority')
 mongoose.connect('mongodb+srv://ase:ase@cluster0-rtt01.mongodb.net/asecustdb?retryWrites=true&w=majority')
   .then(() => console.log('connection successful'))
   .catch((err) => console.error(err));
